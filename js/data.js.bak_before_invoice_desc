@@ -1,0 +1,91 @@
+// ==================== البيانات ====================
+let materials = [];
+let sales = [];
+let expenses = [];
+let debts = [];
+let settings = {
+    displayCurrency: 'SYP',
+    password: 'admin',
+    pin: '',
+    businessName: '',
+    ownerSignature: ''
+};
+
+let materialId = 1;
+let editingMaterialId = null;
+let editingSaleIndex = null;
+let editingExpenseIndex = null;
+let editingDebtIndex = null;
+
+// ==================== دوال التخزين ====================
+async function saveAllData() {
+    if (!currentUser) return;
+    const uid = currentUser.uid;
+    await db.collection('users').doc(uid).collection('data').doc('main').set({
+        materials,
+        sales,
+        expenses,
+        debts,
+        settings
+    }, { merge: true });
+}
+
+async function loadAllDataFromFirestore() {
+    if (!currentUser) return;
+    const uid = currentUser.uid;
+    const doc = await db.collection('users').doc(uid).collection('data').doc('main').get();
+    if (doc.exists) {
+        const data = doc.data();
+        materials = data.materials || [];
+        sales = data.sales || [];
+        expenses = data.expenses || [];
+        debts = data.debts || [];
+        settings = data.settings || settings;
+        materialId = materials.length > 0 ? Math.max(...materials.map(m => m.id)) + 1 : 1;
+        updateAllTables();
+    } else {
+        materials = [];
+        sales = [];
+        expenses = [];
+        debts = [];
+        await saveAllData();
+        updateAllTables();
+    }
+}
+
+// ==================== دوال العملات ====================
+function saveSettings() {
+    settings.displayCurrency = document.getElementById('displayCurrency').value;
+    saveAllData();
+    updateAllTables();
+}
+
+function loadSettings() {
+    document.getElementById('displayCurrency').value = settings.displayCurrency || 'SYP';
+    loadBusinessInfo();
+}
+
+function loadBusinessInfo() {
+    document.getElementById('businessName').value = settings.businessName || '';
+    document.getElementById('ownerSignature').value = settings.ownerSignature || '';
+}
+
+function saveBusinessInfo() {
+    settings.businessName = document.getElementById('businessName').value.trim();
+    settings.ownerSignature = document.getElementById('ownerSignature').value.trim();
+    saveAllData();
+}
+
+function convertToBase(amount, fromCurrency) {
+    return amount;
+}
+
+function convertFromBase(amount, toCurrency) {
+    return amount;
+}
+
+function formatCurrency(amount, currency) {
+    currency = currency || settings.displayCurrency;
+    if (currency === 'USD') return `$${Number(amount).toFixed(2)}`;
+    else return `${Number(amount).toFixed(0)} ل.س`;
+}
