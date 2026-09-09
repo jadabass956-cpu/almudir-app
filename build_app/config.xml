@@ -10,4 +10,5 @@
     <preference name="Fullscreen" value="true" />
     <preference name="BackgroundColor" value="#ffffff" />
     <preference name="LoadUrlTimeoutValue" value="60000" />
+    <icon src="res/icon/icon.png" />
 </widget>
