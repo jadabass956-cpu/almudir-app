@@ -1,0 +1,26 @@
+[debug] [2026-09-06T22:24:11.493Z] ----------------------------------------------------------------------
+[debug] [2026-09-06T22:24:11.516Z] Command:       /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/bin/firebase login --reauth
+[debug] [2026-09-06T22:24:11.518Z] CLI Version:   15.28.2
+[debug] [2026-09-06T22:24:11.518Z] Platform:      android
+[debug] [2026-09-06T22:24:11.519Z] Node Version:  v26.3.1
+[debug] [2026-09-06T22:24:11.520Z] Detected Agent: unknown
+[debug] [2026-09-06T22:24:11.521Z] Time:          Mon Sep 07 2026 01:24:11 GMT+0300 (GMT+03:00)
+[debug] [2026-09-06T22:24:11.521Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=548916995&redirect_uri=http%3A%2F%2Flocalhost%3A9005&login_hint=jadabass956%40gmail.com
+[info] 
+[info] Waiting for authentication...
+[debug] [2026-09-06T22:24:31.190Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
+[debug] [2026-09-06T22:24:31.192Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2026-09-06T22:24:33.559Z] <<< [apiv2][status] POST https://accounts.google.com/o/oauth2/token 200
+[debug] [2026-09-06T22:24:33.560Z] <<< [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[info] 
+[info] ✔  Success! Logged in as jadabass956@gmail.com 
+[debug] [2026-09-06T22:24:39.178Z] Error: Timed out.
+    at Timeout._onTimeout (/data/data/com.termux/files/usr/lib/node_modules/firebase-tools/lib/utils.js:296:49)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)
+[error] 
+[error] Error: An unexpected error has occurred.
