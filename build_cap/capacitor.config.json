@@ -1,0 +1,15 @@
+{
+  "appId": "com.almudir.ai",
+  "appName": "المدير AI",
+  "webDir": "www",
+  "server": {
+    "url": "https://jasoft-8bae9.web.app",
+    "cleartext": false,
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true
+  }
+}
